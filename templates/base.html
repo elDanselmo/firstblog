@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+{% load static%}
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block head_title %} My Django Blog {% endblock head_title %} </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optinal theme css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- MyDjangoBlog css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/mydjangoblog.css' %}" />
+
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="/">My Django Blog</a>
+            </div>
+            <div class="hidden-xs">
+                <div class="navbar-header pull-right">
+                    <img alt="logo matrix" src="{% static 'img/logo.png' %}" />
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="{% if request.path_info == '/' %} active{% endif %}"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="{% if request.path_info == '/contatti/' %} active{% endif %}"><a href="/contatti">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container contenuto">
+        <div class="row">
+            <div class="col-sm-8 bg-info">
+                {% block content %} {% endblock content %}
+            </div>
+            <!--col-sm-8-->
+            <div class="col-sm-3-offset-1">
+                <center>
+                    <h4>My Django Blog</h4>
+                    <h5>Creato da Antonino primo parto</h5>
+                    <p>Powered by <a href="https://www.djangoproject.com/">Django</a> & <a href="https://www.python.org/">Bootstrap</a></p>
+                </center>
+            </div>
+            <!--col-sm-3-offset-1-->
+        </div>
+        <!--row-->
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <p style="color: white; font-family: roboto; font-weight: bold "> Canali Social: </p>
+            <a style="color: white; font-family: roboto" href=" https://www.youtube.com/channel/UCnKZPTXW_FpAGoP1BcBl1qg "><span class="glyphicon glyphicon-thumbs-up "></span>Youtube</a><br>
+            <a style="color: white; font-family: roboto" href=" https://twitter.com/DonSlame "><span class="glyphicon glyphicon-thumbs-up "></span>Twitter</a><br>
+            <a style="color: white; font-family: roboto" href=" https://www.facebook.com/antonino.danselmo "> <span class="glyphicon glyphicon-thumbs-up "></span>Facebook</a><br>
+            <br>
+            <a href="# ">Torna su</a><br>
+        </div>
+    </footer>
+    <!-- CDN J-query -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=" anonymous "></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js " integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa " crossorigin="anonymous "></script>
+
+
+</body>
+
+</html>
